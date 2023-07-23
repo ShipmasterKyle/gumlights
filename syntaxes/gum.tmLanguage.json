@@ -1,0 +1,113 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Gum",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.gum",
+				"match": "\\b(else|in|pairs|if|while|for|return|not|kick)\\b"
+			},
+			{
+				"name": "keyword.vars.gum",
+				"match": "\\b(local|global)\\b"
+			},
+			{
+				"name": "keyword.init.gum",
+				"match": "\\b(chew|from|pack|add)\\b"
+			},
+			{
+				"name": "keyword.unit.gum",
+				"match": "\\b(true|false|nil)\\b"
+			},
+			{
+				"name": "keyword.other",
+				"match": "\\b(self|extension|@function|@broadcast)"
+			}
+		]
+		},
+		"strings": {
+			"name": "string.quoted.double.gum",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.gum",
+					"match": "\\\\."
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"match": "(\\+|-(?!-)|/|\\*|%|\\^)",
+					"name": "keyword.operator.arithmetic.gum"
+				},
+				{
+					"match": "\\b(and|or|not)\\b",
+					"name": "keyword.operator.logical.gum keyword.operator.wordlike.gum"
+				},
+				{
+					"match": "(\\+=|-=|/=|\\*=|%=|\\^=|\\.\\.=|=)",
+					"name": "keyword.operator.assignment.gum"
+				},
+				{
+					"match": "(\\.\\.|\\#)",
+					"name": "keyword.operator.other.gum"
+				},
+				{
+					"match": "(==|~=|>=|>|<=|<)",
+					"name": "keyword.operator.comparison.gum"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"match": "\\b0_*[xX]_*[\\da-fA-F_]*(?:[eE][\\+\\-]?_*\\d[\\d_]*(?:\\.[\\d_]*)?)?",
+					"name": "constant.numeric.hex.gum"
+				},
+				{
+					"match": "\\b0_*[bB][01_]+(?:[eE][\\+\\-]?_*\\d[\\d_]*(?:\\.[\\d_]*)?)?",
+					"name": "constant.numeric.binary.gum"
+				},
+				{
+					"match": "(?:\\d[\\d_]*(?:\\.[\\d_]*)?|\\.\\d[\\d_]*)(?:[eE][\\+\\-]?_*\\d[\\d_]*(?:\\.[\\d_]*)?)?",
+					"name": "constant.numeric.decimal.gum"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"begin": "--",
+					"end": "\\n",
+					"name": "comment.line.double-dash.lua",
+					"patterns": [
+						{
+							"match": "@\\w+",
+							"name": "storage.type.class.lua"
+						}
+					]
+				}
+			]
+		}
+	},
+	"scopeName": "source.gum"
+}

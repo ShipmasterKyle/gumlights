@@ -1,0 +1,37 @@
+{
+  "name": "gumlights",
+  "displayName": "GumLights",
+  "description": "Syntax Highlights for Gum",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "gum",
+        "aliases": [
+          "Gum",
+          "gum"
+        ],
+        "extensions": [
+          ".gum"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "gum",
+        "scopeName": "source.gum",
+        "path": "./syntaxes/gum.tmLanguage.json"
+      }
+    ]
+  },
+  "dependencies": {
+    "@vscode/vsce": "^2.19.0"
+  }
+}
