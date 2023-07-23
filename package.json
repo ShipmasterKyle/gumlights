@@ -3,6 +3,7 @@
   "displayName": "GumLights",
   "description": "Syntax Highlights for Gum",
   "version": "0.0.1",
+  "publisher": "Cubix",
   "repository": "https://github.com/ShipmasterKyle/gumlights",
   "engines": {
     "vscode": "^1.80.0"
